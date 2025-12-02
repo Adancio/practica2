@@ -15,22 +15,18 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Enviar Correo de Notificación
-        # Debes usar una acción para enviar correo. Investiga sobre 'dawidd6/action-send-mail' o similar.
         uses: dawidd6/action-send-mail@v3
         with:
           # --- Configuración de Servidor de Correo (Requerido) ---
-          # Necesitarás configurar esto con los datos de un servidor SMTP (ej. Gmail, Outlook, o SendGrid). 
-          # Para Gmail, necesitarás una 'App Password' en lugar de tu contraseña normal.
-          server_address: smtp.gmail.com  # Ejemplo, cámbialo si usas otro
-          server_port: 465               # Ejemplo, cámbialo si usas otro
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }} # Usar Secretos es CLAVE para la seguridad
+          server_address: smtp.gmail.com  
+          server_port: 465               
+          # ¡UTILIZANDO LOS SECRETS!
+          username: ${{ secrets.EMAIL_USERNAME }}  # Toma el valor de adan.juarezjr@iteso.mx
+          password: ${{ secrets.EMAIL_PASSWORD }} # Toma el valor de la contraseña de 16 caracteres
           
           # --- Contenido del Correo ---
-          # El 'subject' debe cambiar dinámicamente según la rama
           subject: Cambios subidos a rama ${{ github.ref_name }} 
-          # Aquí usas 'github.ref_name' para obtener dinámicamente el nombre de la rama.
           
           body: Se detectó un push en la rama ${{ github.ref_name }}. Por favor, revisa los cambios en el repositorio.
-          to: tu_correo@ejemplo.com # El correo donde quieres recibir la notificación
-          from: Mi GitHub Action # Nombre que aparecerá como remitente
+          to: adan.juarezjr@iteso.mx # El correo donde quieres recibir la notificación (puedes poner el mismo)
+          from: Mi GitHub Action
