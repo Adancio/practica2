@@ -19,8 +19,8 @@ jobs:
         with:
           server_address: smtp.gmail.com  
           server_port: 465               
-          username: ${{ adan.juarezjr@iteso.mx }}  
-          password: ${{ Revuelton25 }} 
+          username: ${{ EMAIL_USERNAME }}  
+          password: ${{ EMAIL_PASSWORD }} 
           
           subject: Cambios subidos a rama ${{ github.ref_name }} 
           
