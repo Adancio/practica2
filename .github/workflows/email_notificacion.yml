@@ -17,16 +17,13 @@ jobs:
       - name: Enviar Correo de Notificación
         uses: dawidd6/action-send-mail@v3
         with:
-          # --- Configuración de Servidor de Correo (Requerido) ---
           server_address: smtp.gmail.com  
           server_port: 465               
-          # ¡UTILIZANDO LOS SECRETS!
-          username: ${{ secrets.EMAIL_USERNAME }}  # Toma el valor de adan.juarezjr@iteso.mx
-          password: ${{ secrets.EMAIL_PASSWORD }} # Toma el valor de la contraseña de 16 caracteres
+          username: ${{ adan.juarezjr@iteso.mx }}  
+          password: ${{ Revuelton25 }} 
           
-          # --- Contenido del Correo ---
           subject: Cambios subidos a rama ${{ github.ref_name }} 
           
           body: Se detectó un push en la rama ${{ github.ref_name }}. Por favor, revisa los cambios en el repositorio.
-          to: adan.juarezjr@iteso.mx # El correo donde quieres recibir la notificación (puedes poner el mismo)
+          to: adan.juarezjr@iteso.mx
           from: Mi GitHub Action
